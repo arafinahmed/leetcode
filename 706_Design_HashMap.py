@@ -25,3 +25,24 @@ class MyHashMap:
 # obj.put(key,value)
 # param_2 = obj.get(key)
 # obj.remove(key)
+
+
+# This is more slower.
+# class MyHashMap:
+
+#     def __init__(self):
+#         self.dict = [None] * 1000001
+
+#     def put(self, key: int, value: int) -> None:
+#         self.dict[key] = value
+        
+
+#     def get(self, key: int) -> int:
+#         if self.dict[key] == None: 
+#             return -1
+#         else:
+#             return self.dict[key]
+        
+
+#     def remove(self, key: int) -> None:
+#         self.dict[key] = None
