@@ -17,6 +17,8 @@ class Solution:
         col = (l+r)//2
         if matrix[0][col] == target:
             return True
+        elif matrix[0][col] > target:
+            col -= 1
         
         l, r = 0, n-1
         while l < r:
@@ -30,31 +32,8 @@ class Solution:
         row = (l+r)//2
         if matrix[row][0] == target:
             return True
-
-        l, r = 0, n-1
-        while l < r:
-            mid = (l+r)//2
-            if matrix[mid][col] < target:
-                l = mid + 1
-            elif matrix[mid][col] > target:
-                r = mid
-            else:
-                return True
-            
-        if matrix[l][col] == target:
-            return True
-            
-        l, r = 0, m-1
-        while l < r:
-            mid = (l+r)//2
-            if matrix[row][mid] < target:
-                l = mid+1
-            elif matrix[row][mid] > target:
-                r = mid
-            else:
-                return True
-        if matrix[row][l] == target:
-            return True
+        elif matrix[row][0] > target:
+            row -= 1
         return False
     
 x = Solution()
