@@ -3,18 +3,11 @@ from typing import List
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        nums = [0] + nums
-        nums = sorted(nums)
-        missing = 0
+        set_n = set(range(1, n+1))
+        set_nums = set(nums)
 
-        for i in range(1, n + 1):
-            if nums[i] == nums[i - 1]:
-                duplicate = nums[i]
-            elif nums[i] - nums[i - 1] > 1:
-                missing = nums[i - 1] + 1
+        missing = set_n - set_nums
+        duplicate = sum(nums) - sum(set_nums)
 
-        if nums[-1] != n:
-            missing = n
-
-        return [duplicate, missing]
+        return [duplicate, missing.pop()]
         
